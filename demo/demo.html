@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Soundplug demo</title>
+<link rel="stylesheet" href="styles/stylesheet.css" type="text/css" />
+</head>
+
+<body>
+
+<div id="container">
+<h2>SoundPlug</h2>
+<h3>Let's try out a nursey rhyme - hover over the sounds!</h3>
+
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some chickens,
+Ee i ee i oh!
+With a cluck-cluck here,
+And a cluck-cluck there
+</p>
+<p>
+Here a cluck, there a cluck,
+Everywhere a cluck-cluck
+Old MacDonald had a farm
+Ee i ee i oh!
+</p>
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some dogs,
+Ee i ee i oh!
+With a woof-woof here,
+</p>
+<p>
+And a woof-woof-woof there
+Here a woof, there a woof,
+Everywhere a woof-woof
+Old MacDonald had a farm
+Ee i ee i oh!
+</p>
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some turkeys,
+Ee i ee i oh!
+</p>
+<p>
+With a gobble-gobble gobble-gobble here,
+And a gobble-gobble gobble-gobble there
+Here a gobble-gobble, there a gobble-gobble,
+Everywhere a gobble-gobble-gobble
+Old MacDonald had a farm
+Ee i ee i oh!
+</p>
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some cows,
+Ee i ee i oh!
+</p>
+<p>
+With a moo-moo here,
+And a moo-moo there
+Here a moo, there a moo,
+Everywhere a moo-ooo
+Old MacDonald had a farm,
+Ee i ee i oh!
+</p>
+</div>
+
+<p id="foot"><a href="https://github.com/fsbdev/Soundplug">SoundPlug on Github</a> | <a href="http://twitter.com/fsbrooke">@fsbrooke</a></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="../scripts/SoundManager/script/soundmanager2-nodebug-jsmin.js"></script>
+<script src="../scripts/findAndReplaceDOMText.js"></script>
+<script src="../scripts/animalsounds.js"></script>
+<script src="../scripts/soundplug.js"></script>
+<script>
+
+	var options = {};
+
+	$.fn.ready(function () {
+		soundPlug(SOUNDS, options);
+	});
+
+</script>
+
+</body>
+</html>
