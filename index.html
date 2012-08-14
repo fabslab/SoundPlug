@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Soundplug demo</title>
+<link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="styles/stylesheet.css" type="text/css" />
+</head>
+
+<body>
+
+<div id="container">
+<h2>SoundPlug</h2>
+<h3>Let's try out a nursey rhyme - hover over the sounds!</h3>
+
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some chickens,
+Ee i ee i oh!
+With a cluck-cluck here,
+And a cluck-cluck there
+</p>
+<p>
+Here a cluck, there a cluck,
+Everywhere a cluck-cluck
+Old MacDonald had a farm
+Ee i ee i oh!
+</p>
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some dogs,
+Ee i ee i oh!
+With a woof-woof here,
+</p>
+<p>
+And a woof-woof-woof there
+Here a woof, there a woof,
+Everywhere a woof-woof
+Old MacDonald had a farm
+Ee i ee i oh!
+</p>
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some turkeys,
+Ee i ee i oh!
+</p>
+<p>
+With a gobble-gobble gobble-gobble here,
+And a gobble-gobble gobble-gobble there
+Here a gobble-gobble, there a gobble-gobble,
+Everywhere a gobble-gobble-gobble
+Old MacDonald had a farm
+Ee i ee i oh!
+</p>
+<p>
+Old MacDonald had a farm,
+Ee i ee i oh!
+And on that farm he had some cows,
+Ee i ee i oh!
+</p>
+<p>
+With a moo-moo here,
+And a moo-moo there
+Here a moo, there a moo,
+Everywhere a moo-ooo
+Old MacDonald had a farm,
+Ee i ee i oh!
+</p>
+
+<div id="sound-selection">
+	<button id="select-sound" class="btn btn-large" href="#">Add another sound</button>
+	<button id="run-sounds" class="btn btn-large" href="#">Run SoundPlug</button>
+	<form>
+		<div id="word-inputs">
+			<label>Word</label>
+			<input type="text" class="word span4" placeholder="What does it sound like?" />
+		</div>
+		<div id="url-inputs">
+			<label>SoundCloud URL</label>
+			<input type="text" class="url span4" placeholder="The actual sound" />
+		</div>
+	</form>
+</div>
+</div>
+
+<p id="foot"><a href="https://github.com/fsbdev/Soundplug">SoundPlug on Github</a> | <a href="http://twitter.com/fsbrooke">@fsbrooke</a></p>
+
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script src="scripts/SoundManager/script/soundmanager2-nodebug-jsmin.js"></script>
+<script src="scripts/findAndReplaceDOMText.js"></script>
+<script src="scripts/animalsounds.js"></script>
+<script src="scripts/soundplug.js"></script>
+<script>
+
+	var options = {};
+
+	$.fn.ready(function () {
+
+		soundPlug(SOUNDS, options);
+
+		$('#select-sound').click(function showSounds() {
+			$('form').toggle();
+			$('#select-sound').hide();
+			$('#run-sounds').show();
+		});
+
+		$('#run-sounds').click(function runSounds() {
+			var newSounds = {};
+			var words = $('input.word');
+			var urls = $('input.url');
+			var i = 0;
+			for (; i < words.length; ++i) {
+				newSounds[words[i].value] = {
+					"url": urls[i].value,
+					"css": {
+						"color": "#4ea337"
+					}
+				}
+			}
+			soundPlug(newSounds, options);
+		});
+
+	});
+
+</script>
+
+</body>
+</html>
