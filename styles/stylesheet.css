@@ -43,7 +43,7 @@ h2 {
 }
 
 h3 { 
-	font: italic 2.2rem 'Georgia';
+	font: italic 2.2rem 'Georgia', 'Times New Roman', serif;
 	letter-spacing: 1px;
 	border-top: 3px solid #CCC; 
 	border-bottom: 3px solid #CCC; 
@@ -56,8 +56,31 @@ p {
 	line-height: 150%;
 }
 
+.btn {
+	margin-top:20px;
+}
+
+#run-sounds {
+	display: none;
+}
+
+form {
+	float: right;
+	display: none;
+}
+
+#word-inputs {
+	float: left;
+	padding-right: 20px;
+}
+
+#url-inputs {
+	float: right;
+	padding-right: 20px;
+}
+
 #foot { 
-	margin-top: 80px; 
+	margin-top: 60px; 
 	text-align: center; 
 	border-top: 2px solid #CCC; 
 	color: #000; 
@@ -72,4 +95,8 @@ p {
 
 h3, #foot {
 	text-align: center;
+}
+
+#sound-selection {
+	margin-top: 40px;
 }

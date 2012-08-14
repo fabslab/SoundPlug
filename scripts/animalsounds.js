@@ -4,7 +4,7 @@
 		"cluck": {
 			"url": "http://soundcloud.com/olpc-samples/chicken2-wav",
 			"css": {
-				"color": "#b6a674"
+				"color": "#dfc644"
 			}
 		},
 		"woof": {

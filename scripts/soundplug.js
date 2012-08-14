@@ -19,7 +19,6 @@ var soundPlug = (function( $, soundManager, findAndReplaceDOMText ) {
 			event: 'hover',
 			selector: 'body',
 			css: {
-				"font-weight": "bold"
 			}
 		};
 		// Deep extend in order to merge the CSS properties object as well

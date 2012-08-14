@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>Soundplug demo</title>
+<link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css" />
 <link rel="stylesheet" href="styles/stylesheet.css" type="text/css" />
 </head>
 
@@ -68,21 +69,60 @@ Everywhere a moo-ooo
 Old MacDonald had a farm,
 Ee i ee i oh!
 </p>
+
+<div id="sound-selection">
+	<button id="select-sound" class="btn btn-large" href="#">Add another sound</button>
+	<button id="run-sounds" class="btn btn-large" href="#">Run SoundPlug</button>
+	<form>
+		<div id="word-inputs">
+			<label>Word</label>
+			<input type="text" class="word span4" placeholder="What does it sound like?" />
+		</div>
+		<div id="url-inputs">
+			<label>SoundCloud URL</label>
+			<input type="text" class="url span4" placeholder="The actual sound" />
+		</div>
+	</form>
+</div>
 </div>
 
 <p id="foot"><a href="https://github.com/fsbdev/Soundplug">SoundPlug on Github</a> | <a href="http://twitter.com/fsbrooke">@fsbrooke</a></p>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="../scripts/SoundManager/script/soundmanager2-nodebug-jsmin.js"></script>
-<script src="../scripts/findAndReplaceDOMText.js"></script>
-<script src="../scripts/animalsounds.js"></script>
-<script src="../scripts/soundplug.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script src="scripts/SoundManager/script/soundmanager2-nodebug-jsmin.js"></script>
+<script src="scripts/findAndReplaceDOMText.js"></script>
+<script src="scripts/animalsounds.js"></script>
+<script src="scripts/soundplug.js"></script>
 <script>
 
 	var options = {};
 
 	$.fn.ready(function () {
+
 		soundPlug(SOUNDS, options);
+
+		$('#select-sound').click(function showSounds() {
+			$('form').toggle();
+			$('#select-sound').hide();
+			$('#run-sounds').show();
+		});
+
+		$('#run-sounds').click(function runSounds() {
+			var newSounds = {};
+			var words = $('input.word');
+			var urls = $('input.url');
+			var i = 0;
+			for (; i < words.length; ++i) {
+				newSounds[words[i].value] = {
+					"url": urls[i].value,
+					"css": {
+						"color": "#4ea337"
+					}
+				}
+			}
+			soundPlug(newSounds, options);
+		});
+
 	});
 
 </script>
